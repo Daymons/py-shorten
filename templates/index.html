@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+
+        <title>Shortener</title>
+
+        <style>
+            h1 {
+                font-family: 'Rubik', sans-serif;
+                font-size: 36px;
+                font-weight: 400;
+            }
+
+            .shortener {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+
+                text-align: center;
+            }
+
+            .shortener input {
+                border: none;
+                outline: none;
+                border-bottom: 2px solid black;
+                width: 100%;
+
+                font-family: 'Rubik', sans-serif;
+                font-size: 16px;
+                text-align: center;
+
+                transition: all .15s ease-out;
+            }
+
+            .shortener input:focus {
+                border: none;
+                outline: none;
+                border-bottom: 4px solid black;
+
+                transition: all .15s ease-in;
+            }
+
+            .shortener button {
+                background-color: #00C0FF;
+                border: 1px solid blue;
+                border-radius: 10px 10px 10px 10px;
+                color: white;
+                text-align: center;
+
+                margin-top: 15px;
+
+                font-family: 'Rubik', sans-serif;
+                font-size: 14px;
+                padding-left: 10px;
+                padding-right: 10px;
+
+                transition: all .2s ease-out;
+            }
+
+            .shortener button:hover {
+                font-size: 18px;
+                padding-left: 15px;
+                padding-right: 15px;
+
+                transition: all .2s ease-in;
+            }
+
+            .flashes {
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                -moz-transform: translateX(-50%) translateY(-65%);
+                -webkit-transform: translateX(-50%) translateY(-65%);
+                transform: translateX(-50%) translateY(-65%);
+
+                border: 1px solid green;
+                background-color: lightgreen;
+
+                border-radius: 15px 15px 15px 15px;
+
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .flashes p {
+                font-family: 'Rubik', sans-serif;
+                font-size: 16px;
+            }
+
+            .error {
+                border: 1px solid red;
+                background-color: #EB8670;
+            }
+
+            .footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+
+            .footer p {
+                font-family: 'Rubik', sans-serif;
+                font-size: 16px;
+
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="shortener">
+            <h1>Link shortener</h1>
+            <form action="shorten/" method="POST">
+                <input type="text" name="link" required><br>
+                <button>Shorten</button>
+            </form>
+        </div>
+        {% with flashes = get_flashed_messages(with_categories=true) %}
+            {% if flashes %}
+                {% for c, i in flashes %}
+                    <div class="flashes {{ c }}">
+                        <p>{{ i }}</p>
+                    </div>
+                {% endfor %}    
+            {% endif %}
+        {% endwith %}
+        <div class="footer">
+            <hr>
+            <p>Published under the <a href="https://creativecommons.org/share-your-work/public-domain/cc0/">Creative Commons 0 licence.</a></p>
+            <p>2023 <a href="https://github.com/Daymons">daymons</a></p>
+        </div>
+    </body>
+</html>
