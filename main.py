@@ -47,4 +47,5 @@ def redirect(code):
         return flask.redirect(''.join(db_link))
 
 if __name__ == '__main__':
-    app.run()
+    import waitress
+    waitress.serve(app, host="0.0.0.0", port="8080")
