@@ -1,4 +1,4 @@
-# [py-shorten](https://short.cvillahro.live), a lightweight Python URL shortener. 
+# py-shorten, a lightweight Python URL shortener. 
 Made using Flask and a SQLite3 database, the program is capable of serving a URL shortener to everyone. It's very lightweight and made to run on any kind of server (even on a free EC2 instance).
 
 # How do I run it?
@@ -8,4 +8,4 @@ You only need to clone the repository (``git clone https://github.com/Daymons/py
 # Contact
 * Discord @ daymons.@7593   
 * Twitter @ hyperyzen5   
-* [e-mail me @ day@cvillahro.live](mailto:day@cvillahro.live)
+* [e-mail me @ me@daymons.xyz](mailto:me@☻daymons.xyz)
